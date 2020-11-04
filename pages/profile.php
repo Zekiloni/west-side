@@ -3,7 +3,6 @@
   if(!$account->isLogged()) {	$redir = $url."home"; header("Location: $redir"); }
   //if(!$account->isAdmin($_SESSION['email'])) { 	$redir = $url."home"; header("Location: $redir"); }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -66,8 +65,8 @@
           </div>  
         </div>
 
-        <div class="row">
-         <div class="col-md-6 py-3">
+        <div class="row py-5">
+         <div class="col-md-4">
             <h4 class="font-weight-light">IC Informacije</h4>
             <ul class="user-informations">
                 <?php if($userData['Spol'] == "1") { $spol = "Muško"; } else if($userData['Spol'] == "2") { $spol = "Žensko"; } # spol ?>
@@ -78,15 +77,16 @@
                 <li><b>Banka </b> <?php echo number_format($userData['Bank']); ?></li>
               </ul>
           </div>  
+          <div class="col">
+           <h4 class="font-weight-light">Oruzije</h4>
+            <?php for($i = 1; $i <13; $j = $i++ )  { ?>
+              <?php if($userData['Weapon'.$i] > '0')  {?>
+              <img class="weapon-icon" src="<?php echo $url; ?>assets/images/weapons/<?php echo $userData['Weapon'.$i]; ?>.png" data-toggle="tooltip" data-placement="top" title="<?php echo $userData['Ammo'.$i]; ?> Metkova">
+            <?php } } ?>
+          </div>  
         </div>
         <div class="row py-3">
-          <div class="col-md-1"> <h4 class="font-weight-light">Oruzije</h4></div>
-          <div class="col">
-          <?php for($i = 1; $i <13; $j = $i++ )  { ?>
-            <?php if($userData['Weapon'.$i] > '0')  {?>
-            <img class="weapon-icon" src="<?php echo $url; ?>assets/images/weapons/<?php echo $userData['Weapon'.$i]; ?>.png" data-toggle="tooltip" data-placement="top" title="<?php echo $userData['Ammo'.$i]; ?> Metkova">
-          <?php } } ?>
-         </div>
+
         </div>
 
         <div class="row py-3">

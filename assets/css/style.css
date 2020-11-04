@@ -267,8 +267,17 @@ button:hover { opacity: 0.5; }
 
 .nav-tabs li { padding: 10px;}
 
+.nav-tabs li .active { 
+ box-shadow: 0 7px 20px rgb(255 122 0 / 35%), 0 14px 49px rgb(255 143 36 / 29%);
+  border-radius: 6px;
+  background: #de7718;
+  padding: 8px 15px;
+  color: white;
+  background: linear-gradient(180deg, #dc7717, #de7718);
+}
+
 .user-informations { list-style: none; font-size: 18px; }
 
-.weapon-icon { width: 65px; margin: 5px; height: 65px; transition: all 0.5s ease; }
+.weapon-icon { margin-top: 10px; width: 65px; margin: 5px; height: 65px; transition: all 0.5s ease; }
 .weapon-icon:hover { transform: scale(1.2); }
 
