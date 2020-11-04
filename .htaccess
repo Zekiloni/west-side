@@ -1,0 +1,20 @@
+RewriteEngine On
+
+# stranice
+RewriteRule   ^home/?$   index.php [NC]
+RewriteRule   ^server/?$   index.php?page=server [NC]
+
+# korisnik
+RewriteRule   ^register/?$   index.php?page=register [NC]
+RewriteRule   ^logout/?$   index.php?page=logout [NC]
+RewriteRule   ^profile/?$   index.php?page=profile [NC]
+
+# admin
+RewriteRule   ^admin/?$   index.php?page=admin [NC]
+RewriteRule   ^admin/categories/?$   index.php?page=categories [NC]
+RewriteRule   ^admin/categories/([0-9A-Za-z]+)/?$ index.php?page=categories&id=$1 [L]
+RewriteRule   ^admin/newpost/?$   index.php?page=newpost [NC]
+RewriteRule   ^admin/newpost/([0-9A-Za-z]+)/?$ index.php?page=newpost&id=$1 [L]
+RewriteRule   ^admin/orders/?$   index.php?page=orders [NC]
+RewriteRule   ^dashboard/?$   index.php?page=dashboard [NC]
+RewriteRule ^category/([0-9A-Za-z]+)/?$ index.php?page=category&id=$1 [L]
