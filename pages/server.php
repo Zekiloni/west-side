@@ -23,7 +23,9 @@
 										<a class="dropdown-item" href="server"> Statistika</a>
 									</div>
 								</li>
-								<li class="nav-item"><a class="nav-link" href="account">Account</a></li>
+								<?php if($account->isAdmin($_SESSION['logged_as'])) {  ?>
+									<li class="nav-item"><a class="nav-link" href="admin">Admin</a></li>
+								<?php } ?>
 							</ul>
 						</div>
 					</div>

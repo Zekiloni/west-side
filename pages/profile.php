@@ -29,7 +29,9 @@
 										<a class="dropdown-item" href="server"> Statistika</a>
 									</div>
 								</li>
-								<li class="nav-item"><a class="nav-link" href="account">Account</a></li>
+								<?php if($account->isAdmin($_SESSION['logged_as'])) {  ?>
+									<li class="nav-item"><a class="nav-link" href="admin">Admin</a></li>
+								<?php } ?>
 							</ul>
 						</div>
 					</div>
@@ -42,7 +44,7 @@
     <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#pocetna">Početna</a></li>
       <li><a data-toggle="tab" href="#ic">Menu 1</a></li>
-      <li><a data-toggle="tab" href="#ooc">Menu 2</a></li>
+      <li><a data-toggle="tab" href="#settings">Podešavanje profila</a></li>
     </ul>
     <div class="tab-content py-3">
       <div id="pocetna" class="tab-pane active">
@@ -86,10 +88,6 @@
           </div>  
         </div>
         <div class="row py-3">
-
-        </div>
-
-        <div class="row py-3">
           <div class="col-md-1"> <h4 class="font-weight-light">Vozila</h4></div>
           <?php for($i = 1; $i <6; $j = $i++ )  { ?>
             <?php if($userData['Veh'.$i] != '-1')  {?>
@@ -103,7 +101,7 @@
         <h3>Menu 1</h3>
         <p>Some content in menu 1.</p>
       </div>
-      <div id="ooc" class="tab-pane fade">
+      <div id="settings" class="tab-pane fade">
         <h3>Menu 2</h3>
         <p>Some content in menu 2.</p>
       </div>
