@@ -79,7 +79,7 @@
               </ul>
           </div>  
         </div>
-        <div class="row">
+        <div class="row py-3">
           <div class="col-md-1"> <h4 class="font-weight-light">Oruzije</h4></div>
           <div class="col">
           <?php for($i = 1; $i <13; $j = $i++ )  { ?>
@@ -87,6 +87,15 @@
             <img class="weapon-icon" src="<?php echo $url; ?>assets/images/weapons/<?php echo $userData['Weapon'.$i]; ?>.png" data-toggle="tooltip" data-placement="top" title="<?php echo $userData['Ammo'.$i]; ?> Metkova">
           <?php } } ?>
          </div>
+        </div>
+
+        <div class="row py-3">
+          <div class="col-md-1"> <h4 class="font-weight-light">Vozila</h4></div>
+          <?php for($i = 1; $i <6; $j = $i++ )  { ?>
+            <?php if($userData['Veh'.$i] != '-1')  {?>
+            <?php	$vehData = $account->vehData($userData['Veh'.$i]); ?>
+            <img class="weapon-icon" src="<?php echo $url; ?>assets/images/vehicles/<?php echo $account->getVehicleModel($userData['Veh'.$i]); ?>.png" data-toggle="tooltip" data-placement="top" title="Registrovan: <?php echo $vehData['carTable']; ?>">
+          <?php } } ?>
         </div>
 
       </div>

@@ -39,12 +39,6 @@ function RoleplayName($name) {
 	return $result;
 }
 
-/*function numberToTime($seconds) {
-	$dtF = new \DateTime('@0');
-	$dtT = new \DateTime("@$seconds");
-	return $dtF->diff($dtT)->format('%a dana, %h sati, %i minuta, %s sekundi');
-}*/
-
 function numberToTime($hours)
 {
 
@@ -217,6 +211,7 @@ class User
 		session_destroy();
 		$this->db->query("UPDATE `accounts` SET `online` = '0' WHERE `username` = '".$username."';");
 	}
+
 	public function GetAllUsers()
 	{
 		$result = $this->db->select("SELECT * FROM `accounts`");
@@ -241,6 +236,20 @@ class User
 	{
 		$result = $this->db->select("SELECT * FROM `applications`");
 		return $result;
+	}
+
+	public function vehData($id)
+	{
+		$id = $this->db->quote($id);
+		$result = $this->db->select("SELECT * FROM `cars` WHERE `carID` = '$id'");
+		return $result['0'];
+	}
+
+	public function	getVehicleModel($vehicleid)
+	{
+		$vehicleid = $this->db->quote($vehicleid);
+		$result = $this->db->select("SELECT * FROM `cars` WHERE `carID` = '$vehicleid'");
+		return $result['0']['carModel'];
 	}
 
 	public function Whirlpool($value)
@@ -307,6 +316,7 @@ class Site
 	{
 		$this->db->delete("categories", "id", $id);
 	}
+
 
 	public function addPost($naslov, $tekst, $slika)
 	{
