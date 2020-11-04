@@ -7,7 +7,7 @@ function dateformat($type)
 	{
 		case 1:
 		{
-			$date = date('m/d/Y');
+			$date = date('m/d/Y'); 
 			return $date;
 		}
 		break;
