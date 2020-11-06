@@ -249,7 +249,7 @@ button:hover { opacity: 0.5; }
 .skin-avatar {
   background-color: rgba(0,0,0,0.1);
   width: 32px;
-  min-width: 32px;
+  min-width: 32px; 
   height: 32px;
   min-width: 32px;
   margin: 5px;

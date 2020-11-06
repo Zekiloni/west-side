@@ -13,6 +13,6 @@
 		'keywords' => 'samp, roleplay, samp roleplay, rp, sa-mp, west side, west side rp, west side roleplay',
 		'discord_id' => '762050115564601375',
 	);
-
+ 
 	$url = "http://localhost/west-side/";
 ?>

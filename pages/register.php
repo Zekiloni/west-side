@@ -28,7 +28,7 @@
 		<div class="under-nav">
 			<h2 class="text-center welcome-message">Welcome to <b><?php echo $config['site_name']; ?></b></h2>
 			<h4 class="text-center welcome-message"><?php echo $config['description']; ?></h4>
-		</div>
+		</div> 
 		<div class="container py-5">	
 			<div class="signup-form">
 				<form method="POST">

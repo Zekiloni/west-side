@@ -252,7 +252,7 @@ class User
 		$result = $this->db->select("SELECT * FROM `accounts` WHERE `ID` = '$id'");
 		return $result['0'];
 	}
-
+ 
 	public function Register($name, $password , $email)
 	{
 		$name = $this->db->quote($name);

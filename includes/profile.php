@@ -9,4 +9,4 @@
        <div class="profile-name"><?php echo strstr($userData['Name'], '_', true); ?></div>
     </a>
     <a href="logout" class="logout-icon"></i> <i class="fa fa-sign-out" aria-hidden="true"></i> </a>
-	 <?php } ?>
+	 <?php } ?> 

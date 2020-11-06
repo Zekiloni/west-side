@@ -73,7 +73,7 @@
 		<div class="container">
 				<?php include('includes/news.php'); ?>
 		</div>
-
+ 
   		<div class="container">
 			<footer>
 				<div class="footer-info"><b><?php echo $config['site_name']; ?></b> &#169; <?php echo date("Y"); ?></div>
