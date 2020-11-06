@@ -28,7 +28,7 @@ function dateformat($type)
 	}
 }
 
-	function discordMessage($content)
+	function discordMessage($content, $footer)
 	{
 		$webhookurl = "https://discord.com/api/webhooks/774060787815153674/kDoFZo8zhwCRuX4MiakHD-2ui_0X1lWj0ZCnbkOiyYvQVM2j0NJdyGjnGxAbE66qJ5zK";
 		
@@ -64,7 +64,7 @@ function dateformat($type)
 					"color" => hexdec( "7b7b7b" ),
 		
 					# footer
-					// "footer" => [ "text" => " ", "icon_url" => "slika.png"],
+					"footer" => [ "text" => $footer],
 		
 					# slika
 					// "image" => [ "url" => "https://ru.gravatar.com/userimage/28503754/1168e2bddca84fec2a63addb348c571d.jpg?size=600" ],
@@ -157,7 +157,7 @@ function dateformat($type)
 			case 1: // Error
 			{
 				echo "
-				<div class='alert'>
+				<div class='alert alert-danger fade show'>
 					<strong>$subject</strong> $message
 				</div>
 				";
@@ -165,7 +165,7 @@ function dateformat($type)
 			case 2: // Warning
 			{
 				echo "
-				<div class='alert alert-warning' id='message'>
+				<div class='alert alert-warning fade show' id='message'>
 					<strong>$subject</strong> $message
 				</div>
 				";
@@ -173,7 +173,7 @@ function dateformat($type)
 			case 3: // Success
 			{
 				echo "
-				<div class='alert alert-success' id='message'>
+				<div class='alert alert-success fade show' id='message'>
 					<strong>$subject</strong> $message
 				</div>
 				";
@@ -269,8 +269,7 @@ class User
 		{ 
 			$result = $this->db->query("INSERT INTO `accounts` (`Name`, `Lozinka`, `Email`, `RegDate`, `IP`) VALUES ('".$name."', '".$password."', '".$email."', '".$regDate."', '".$ip."');");
 			Alert("Uspesno !","Vas korisnicki racun je registrovan.", 3); 
-			discordMessage("**".$vreme."** *".$name." ("."$email".")* [".$ip."] je upravo poslao aplikaciju za pristup serveru.");
-			
+			discordMessage("Nova aplikacija / **".$name."** *("."$email".")* [".$ip."].", $vreme);	
 		}
 	}
 
