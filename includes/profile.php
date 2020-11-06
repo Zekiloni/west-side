@@ -6,7 +6,7 @@
   <?php }  else { ?>
     <div class="skin-avatar" ><img src="http://sanfierro-rp.com/assets/skins/<?php echo $userData['Skin'];?>.png"></div>
     <a href="profile" class="ucp-icon"></i> 
-       <div class="profile-name"><?php echo RoleplayName($userData['Name']); ?></div>
+       <div class="profile-name"><?php echo strstr($userData['Name'], '_', true); ?></div>
     </a>
     <a href="logout" class="logout-icon"></i> <i class="fa fa-sign-out" aria-hidden="true"></i> </a>
 	 <?php } ?>

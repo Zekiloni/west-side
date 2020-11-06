@@ -28,78 +28,158 @@ function dateformat($type)
 	}
 }
 
-function GetFullURL()
-{
-	$fullurl = "http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
-	return $fullurl;
-}
-
-function RoleplayName($name) {
-	$result = str_replace("_", " ", $name);
-	return $result;
-}
-
-function numberToTime($hours)
-{
-
-				$mins  = str_pad($hours %60,2,"0",STR_PAD_LEFT);
-
-				if((int)$hours > 24){
-				$days = str_pad(floor($hours /24),2,"0",STR_PAD_LEFT);
-				$hours = str_pad($hours %24,2,"0",STR_PAD_LEFT);
-				}
-				if(isset($days)) { $days = $days." Dana, ";}
-
-				return $days.$hours." Sati, ".$mins." Minuta";
-}
-
-function discordMembers() {
-	$discord = json_decode(file_get_contents("https://discord.com/api/guilds/762050115564601375/widget.json"), true)['members'];
-	$membersCount = 1;
-	foreach ($discord as $member) {
-		//if ($member['status'] == 'online' || $member['status'] == 'dnd') {
-			$membersCount++;
-		//}
-	}
-	return $membersCount;
-}
-
-function discordLink() {
-	$discord = json_decode(file_get_contents("https://discord.com/api/guilds/762050115564601375/widget.json"), true);
-	return $discord['instant_invite'];
-}
-
-
-function Alert($subject, $message, $type)
-{
-	switch($type)
+	function discordMessage($content)
 	{
-		case 1: // Error
-		{
-			echo "
-			<div class='alert'>
-				<strong>$subject</strong> $message
-			</div>
-			";
-		} break;
-		case 2: // Warning
-		{
-			echo "
-			<div class='alert alert-warning' id='message'>
-				<strong>$subject</strong> $message
-			</div>
-			";
-		} break;
-		case 3: // Success
-		{
-			echo "
-			<div class='alert alert-success' id='message'>
-				<strong>$subject</strong> $message
-			</div>
-			";
-		} break;
+		$webhookurl = "https://discord.com/api/webhooks/774060787815153674/kDoFZo8zhwCRuX4MiakHD-2ui_0X1lWj0ZCnbkOiyYvQVM2j0NJdyGjnGxAbE66qJ5zK";
+		
+		$timestamp = date("c", strtotime("now"));
+		
+		$skin = $userData['Skin'];
+
+		$json_data = json_encode([
+
+			# "content" => " poruka ", # slanje poruka
+			# sadrzaj / poruka
+			
+			"username" => "user control panel", # ime bota
+		
+			"tts" => false,
+		
+			"embeds" => [
+				[
+						
+					// Embed Type
+					"type" => "rich",
+		
+					// Embed Description
+					"description" => $content,
+		
+					# link
+					// "url" => "https://gist.github.com/Mo45/cb0813cb8a6ebcd6524f6a36d4f8862c",
+		
+					// Timestamp of embed must be formatted as ISO8601
+					#"timestamp" => $timestamp,
+		
+					// Embed left border color in HEX
+					"color" => hexdec( "7b7b7b" ),
+		
+					# footer
+					// "footer" => [ "text" => " ", "icon_url" => "slika.png"],
+		
+					# slika
+					// "image" => [ "url" => "https://ru.gravatar.com/userimage/28503754/1168e2bddca84fec2a63addb348c571d.jpg?size=600" ],
+		
+
+					# naslovna slika
+					//"thumbnail" => ["url" => "https://i.imgur.com/iBehaSs.png"],
+		
+					// polja
+					/*"fields" => [
+						// Field 1
+						[
+							"name" => "Field #1 Name",
+							"value" => "Field #1 Value",
+							"inline" => false
+						],
+						// Field 2
+						[
+							"name" => "Field #2 Name",
+							"value" => "Field #2 Value",
+							"inline" => true
+						]
+					]*/
+				]
+			]
+		
+		], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
+		
+		
+		$ch = curl_init( $webhookurl );
+		curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+		curl_setopt( $ch, CURLOPT_POST, 1);
+		curl_setopt( $ch, CURLOPT_POSTFIELDS, $json_data);
+		curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+		curl_setopt( $ch, CURLOPT_HEADER, 0);
+		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+		
+		$response = curl_exec( $ch );
+		// If you need to debug, or find out why you can't send message uncomment line below, and execute script.
+		// echo $response;
+		curl_close( $ch );
 	}
-}
+
+	function GetFullURL()
+	{
+		$fullurl = "http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
+		return $fullurl;
+	}
+
+	function RoleplayName($name) {
+		$result = str_replace("_", " ", $name);
+		return $result;
+	}
+
+	function numberToTime($hours)
+	{
+
+					$mins  = str_pad($hours %60,2,"0",STR_PAD_LEFT);
+
+					if((int)$hours > 24){
+					$days = str_pad(floor($hours /24),2,"0",STR_PAD_LEFT);
+					$hours = str_pad($hours %24,2,"0",STR_PAD_LEFT);
+					}
+					if(isset($days)) { $days = $days." Dana, ";}
+
+					return $days.$hours." Sati, ".$mins." Minuta";
+	}
+
+	function discordMembers() {
+		$discord = json_decode(file_get_contents("https://discord.com/api/guilds/762050115564601375/widget.json"), true)['members'];
+		$membersCount = 1;
+		foreach ($discord as $member) {
+			//if ($member['status'] == 'online' || $member['status'] == 'dnd') {
+				$membersCount++;
+			//}
+		}
+		return $membersCount;
+	}
+
+	function discordLink() {
+		$discord = json_decode(file_get_contents("https://discord.com/api/guilds/762050115564601375/widget.json"), true);
+		return $discord['instant_invite'];
+	}
+
+
+	function Alert($subject, $message, $type)
+	{
+		switch($type)
+		{
+			case 1: // Error
+			{
+				echo "
+				<div class='alert'>
+					<strong>$subject</strong> $message
+				</div>
+				";
+			} break;
+			case 2: // Warning
+			{
+				echo "
+				<div class='alert alert-warning' id='message'>
+					<strong>$subject</strong> $message
+				</div>
+				";
+			} break;
+			case 3: // Success
+			{
+				echo "
+				<div class='alert alert-success' id='message'>
+					<strong>$subject</strong> $message
+				</div>
+				";
+			} break;
+		}
+	}
 
 class User 
 {
@@ -144,6 +224,9 @@ class User
 					Alert("Successfully", "Logged in.", 3);
 					$_SESSION['logged']   = true;
 					$_SESSION['logged_as'] = $result[0]['ID'];
+					$vreme = date("H:i:s d-m-Y");
+					discordMessage("**".$vreme."** *".$result[0]['Name']."*"." se upravo prijavio na korisnicki panel. ");
+				
 				}
 				else
 				{ 
@@ -170,20 +253,23 @@ class User
 		return $result['0'];
 	}
 
-	public function Register($first_name, $last_name , $email, $password)
+	public function Register($name, $password , $email)
 	{
-		$first_name = $this->db->quote($first_name);
-		$last_name = $this->db->quote($last_name);
-		$email = $this->db->quote($email);
+		$name = $this->db->quote($name);
 		$password = $this->db->quote($password);
-		if($this->db->exists("users", "email", $email))
-		{
-			Alert("ERROR !", "Username already exist.", 1);
-		}
+		$email = $this->db->quote($email);
+		#$application = $this->db->quote($application);
+		$regDate = date("d/m/Y, H:i:s ");
+		$vreme = date("H:i:s d-m-Y");
+		$ip = $this->getRealIpAddr();
+		$password = strtoupper($this->Whirlpool($password));
+		if($this->db->exists("accounts", "Email", $email)) { Alert("Greska !", "Korisnicki racun vec postoji.", 1); }
+		else if ($this->db->exists("accounts", "Name", $name)) { Alert("Greska !", "Korisnicki racun vec postoji.", 1); }
 		else 
 		{ 
-			$result = $this->db->query("INSERT INTO `users` (`first_name`, `last_name`, `email`, `password`) VALUES ('".$first_name."', '".$last_name."', '".$email."', '".$password."');");
-			Alert("Succesful !","You have been registered.", 3); 
+			$result = $this->db->query("INSERT INTO `accounts` (`Name`, `Lozinka`, `Email`, `RegDate`, `IP`) VALUES ('".$name."', '".$password."', '".$email."', '".$regDate."', '".$ip."');");
+			Alert("Uspesno !","Vas korisnicki racun je registrovan.", 3); 
+			discordMessage("**".$vreme."** *".$name." ("."$email".")* [".$ip."] je upravo poslao aplikaciju za pristup serveru.");
 			
 		}
 	}

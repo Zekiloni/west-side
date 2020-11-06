@@ -74,7 +74,7 @@
 				<?php include('includes/news.php'); ?>
 		</div>
 
-  	<div class="container">
+  		<div class="container">
 			<footer>
 				<div class="footer-info"><b><?php echo $config['site_name']; ?></b> &#169; <?php echo date("Y"); ?></div>
 				<div class="footer-credits">Dizajnirao i kodirao <a href="#"><?php echo $config['author']; ?></a></div>
