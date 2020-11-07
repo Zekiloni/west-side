@@ -25,39 +25,23 @@
 <!DOCTYPE html>
 <html>
 	<body>
-		<div class="under-nav">
-			<h2 class="text-center welcome-message">Welcome to <b><?php echo $config['site_name']; ?></b></h2>
-			<h4 class="text-center welcome-message"><?php echo $config['description']; ?></h4>
-		</div> 
 		<div class="container py-5">	
-			<div class="signup-form">
-				<form method="POST">
-				<h2>Sign up</h2>
-					<p class="hint-text">Create your account. It's free and only takes a minute.</p>
-					<div class="form-group">
-						<div class="row">
-							<div class="col-xs-6"><input type="text"  name="name" placeholder="First Name" ></div>
-						</div>        	
-							</div>
-							<div class="form-group">
-								<input type="email" name="email" placeholder="Email">
-							</div>
-							<div class="form-group">
-									<input type="password" name="password" placeholder="Password" >
-							</div>
-							<div class="form-group">
-									<input type="password" name="confirm_password" placeholder="Confirm Password" >
-							</div>        
-							<div class="form-group">
-						<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
-					</div>
-					<div class="form-group">
-						<button type="submit" name="signup" class="btn-lg btn-block">Register Now</button>
-						<br>
-						<a class="btn-lg btn-block" href="home">Nazad na pocetnu</a>
-					</div>
-				</form>
-			</div>
+			<form method="POST" class="registration">
+				<div class="title">
+					<img class="logo" src="<?php echo $url; ?>assets/images/logo.png" class="img img-responsive" width="200">
+				</div>			
+				<input type="text" name="name" placeholder="Ime_Prezime">
+				<input type="text" name="email" placeholder="E-Mail Adresa">
+				<input type="text" name="password" placeholder="Korisnička šifra">
+				<input type="text" name="confirm_password" placeholder="Ponovite korisničku šifru">
+				<textarea name="ic_story" placeholder="IC Prica vaseg karaktera"></textarea>
+				<div class="uslovi"> 
+					<input type="checkbox" name="checkbox" value="check" id="agree" /> Pročitao sam i slažem se sa Uslovima i pravilima i Politikom privatnosti <br>
+					<small>Registracijom prihvatate i dalje promene pravila i uslova. </small>
+				</div>
+				<br>
+				<button type="submit">Registracija</button>
+			</form>
 		</div>
 		<div class="container">
 			<footer>

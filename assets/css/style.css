@@ -97,23 +97,40 @@ footer ul li { display: inline-block; list-style: none; width: 40%; }
 #close-search:hover { color: whitesmoke; cursor: pointer; }
 
 .login-form { width: 100%; }
-input { 
-   width: 100%;
-    border: none;
-    outline: none;
-    color: white;
-    margin: 0 auto;
-    background: transparent;
-    border-bottom: 1px solid #868686;
-    padding: 10px 30px;
-    transition: all 0.5s ease;
+input {
+   border: none;
+   outline: none;
+   color: grey;
+   padding: 10px 15px;
+   background: #0f0f0f;
+   border: 1px solid #101010;
+   margin-top: 5px;
+   border-radius:5px;
+   /* border-radius: 10px; */
+   transition: all 0.5s ease;
 }
 
-input:hover { border-color: whitesmoke;  }
-input:focus { border-color: whitesmoke;  }
+input:hover { background: #0f0f0f;  color: whitesmoke; border-color: #171717;}
+input:focus { background: #0f0f0f;  color: whitesmoke; }
+
+textarea {
+  border: none;
+  outline: none;
+  color: grey;
+  padding: 10px 15px;
+  background: #0f0f0f;
+  border: 1px solid #101010;
+  margin-top: 5px;
+  border-radius:5px;
+  /* border-radius: 10px; */
+  transition: all 0.5s ease;
+}
+
+textarea:hover { background: #0f0f0f;  color: whitesmoke; border-color: #171717;}
+textarea:focus { background: #0f0f0f;  color: whitesmoke; }
 
 
-button { padding: 10px 20px ; background: white; border: none; outline: none; border-bottom: 2px solid white; transition: all 0.5s ease; }
+button {padding: 10px 20px;background: linear-gradient(180deg, #f7ce68, #f9b776);box-shadow: 0 7px 20px rgb(247 203 105 / 33%), 0 14px 49px rgb(249 184 118 / 18%);border: none;border-radius: 5px;outline: none;transition: all 0.5s ease;}
 button:hover { opacity: 0.5; }
 
 .admin-navigation {margin: 0 auto;margin-top: 150px;}
@@ -283,3 +300,42 @@ button:hover { opacity: 0.5; }
 .weapon-icon { margin-top: 10px; width: 65px; margin: 5px; height: 65px; transition: all 0.5s ease; }
 .weapon-icon:hover { transform: scale(1.2); }
 
+.registration {
+  width: 60%;
+  margin: 0 auto;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.12);
+  border-radius: 10px;
+  margin-top: 100px;
+  padding-bottom: 50px;
+}
+
+.registration .title {width: 100%;background-image: url('../images/registration.png');padding: 50px;border-radius: 10px;}
+
+.registration .title .logo {   
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+.registration input, textarea { text-align: center;display: block;margin: 0 auto;margin-top: 20px;}
+.registration button { width: 30%;  margin-top: 30px; display: block; margin: 0 auto; }
+
+.registration  textarea { width: 70%; height: 100px; text-align: left; }
+
+.registration .uslovi { text-align: center; }
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

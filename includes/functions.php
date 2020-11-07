@@ -28,7 +28,7 @@ function dateformat($type)
 	}
 }
 
-	function discordMessage($content, $footer)
+	function discordMessage($title, $content, $footer)
 	{
 		$webhookurl = "https://discord.com/api/webhooks/774060787815153674/kDoFZo8zhwCRuX4MiakHD-2ui_0X1lWj0ZCnbkOiyYvQVM2j0NJdyGjnGxAbE66qJ5zK";
 		
@@ -47,6 +47,7 @@ function dateformat($type)
 		
 			"embeds" => [
 				[
+					"title" => $title,
 						
 					// Embed Type
 					"type" => "rich",
@@ -269,7 +270,7 @@ class User
 		{ 
 			$result = $this->db->query("INSERT INTO `accounts` (`Name`, `Lozinka`, `Email`, `RegDate`, `IP`) VALUES ('".$name."', '".$password."', '".$email."', '".$regDate."', '".$ip."');");
 			Alert("Uspesno !","Vas korisnicki racun je registrovan.", 3); 
-			discordMessage("Nova aplikacija / **".$name."** *("."$email".")* [".$ip."].", $vreme);	
+			discordMessage("Nova Aplikacija", "**".$name."** *("."$email".")* [".$ip."].", $vreme);	
 		}
 	}
 
