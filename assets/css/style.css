@@ -356,4 +356,5 @@ select:-webkit-autofill:focus {
 }
 
 .keep_register { display: none; }
-
+.car-icon { margin: 5px; }
+.hleb { font-size: 15px; text-transform: uppercase; font-weight: 300; }

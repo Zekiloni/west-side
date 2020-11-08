@@ -10,5 +10,6 @@
 	<link href="<?php echo $url; ?>assets/css/font-awesome.min.css" rel="stylesheet">
 	<link href="<?php echo $url; ?>assets/css/style.css" rel="stylesheet">
 	<link rel="shortcut icon" type="image/png" href="<?php echo $url; ?>favicon.png"/>
+	<link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
 	<script src="https://kit.fontawesome.com/afe60e4dd7.js" crossorigin="anonymous"></script>
 </head>

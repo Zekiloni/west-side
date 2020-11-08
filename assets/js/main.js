@@ -172,4 +172,9 @@ $(function(){
 
   // Event listeners
   submitButton.addEventListener('click', showResults);
-})();
+});
+
+
+$(document).ready(function() {
+    $('#example').DataTable();
+} );

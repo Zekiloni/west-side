@@ -3,6 +3,24 @@
   if(!$account->isLogged()) {	$redir = $url."home"; header("Location: $redir"); }
   //if(!$account->isAdmin($_SESSION['email'])) { 	$redir = $url."home"; header("Location: $redir"); }
 
+  if(isset($_POST['save_Settings']))
+	{
+		if(empty($_POST['new_name']))
+			$new_name = $userData['Name'];
+		else if(empty($_POST['password']))
+			Alert("ERROR !", "You must type your last name.", 1);
+		else if(empty($_POST['email']))
+			Alert("ERROR !", "You must type your mail.", 1);
+		else if(empty($_POST['confirm_password']))
+			Alert("ERROR !", "You must type your confirm password.", 1);
+		else if((strlen($_POST['password']) < 8))
+			Alert("ERROR !", "Your password must be more than 8 characters.", 1);
+			else if($_POST['password'] != $_POST['confirm_password'])
+			Alert("ERROR !", "Passwords doesn't match.", 1);
+		else
+			$account->Register($_POST['name'], $_POST['password'], $_POST['email']);
+	}
+
 ?>
 
 <!DOCTYPE html>
@@ -48,6 +66,7 @@
     </ul>
     <div class="tab-content py-3">
       <div id="pocetna" class="tab-pane active">
+      <small class="hleb">pregled profila</small>
       <h3 class="font-weight-light"><?php echo RoleplayName($userData['Name']); ?></h3>
         <div class="row">
           <div class="col-md-4 py-3">
@@ -92,7 +111,7 @@
           <?php for($i = 1; $i <6; $j = $i++ )  { ?>
             <?php if($userData['Veh'.$i] != '-1')  {?>
             <?php	$vehData = $account->vehData($userData['Veh'.$i]); ?>
-            <img class="weapon-icon" src="<?php echo $url; ?>assets/images/vehicles/<?php echo $account->getVehicleModel($userData['Veh'.$i]); ?>.png" data-toggle="tooltip" data-placement="top" title="Registrovan: <?php echo $vehData['carTable']; ?>">
+            <img class="car-icon" src="<?php echo $url; ?>assets/images/cars/Vehicle_<?php echo $account->getVehicleModel($userData['Veh'.$i]); ?>.jpg" data-toggle="tooltip" data-placement="top" title="Registrovan: <?php echo $vehData['carTable']; ?>">
           <?php } } ?>
         </div>
 
@@ -102,8 +121,27 @@
         <p>Some content in menu 1.</p>
       </div>
       <div id="settings" class="tab-pane fade">
-        <h3>Menu 2</h3>
-        <p>Some content in menu 2.</p>
+        <small class="hleb">Podešavanje profila</small>
+        <h3 class="font-weight-light"><?php echo RoleplayName($userData['Name']); ?></h3>
+        <p>	
+        <form method="POST">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Ime Prezime (<small>Format <b>Ime_Prezime</b></small>)</label>
+            <input type="text" name="new_name" placeholder="<?php echo $userData['Name']; ?>">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Nova sifra</label>
+            <input type="text" name="new_password" placeholder="Nova Sifra">
+          </div>
+          <div class="form-group">
+            <hr>
+            <label for="formGroupExampleInput2">Potreban je upis stare sifra da bi izmenili profil</label>
+            <input type="text" name="current_password" placeholder="trenutna sifra">
+          </div>
+          <br>
+					<button type="submit" name="save_settings">Sacuvaj Izmene</button>
+        </form>
+        </p>
       </div>
     </div>
 

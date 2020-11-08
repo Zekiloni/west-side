@@ -42,7 +42,7 @@
       <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#home">Početna</a></li>
         <li><a data-toggle="tab" href="#postnews">Novosti</a></li>
-        <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+        <li><a data-toggle="tab" href="#members">Lista Korisnika</a></li>
       </ul>
 
       <div class="tab-content">
@@ -54,9 +54,36 @@
           <h3>Menu 1</h3>
           <p>Some content in menu 1.</p>
         </div>
-        <div id="menu2" class="tab-pane fade">
-          <h3>Menu 2</h3>
-          <p>Some content in menu 2.</p>
+        <div id="members" class="tab-pane fade">
+          <h3 class="font-weight-light py-3">Lista korisnika</h3>
+		  <table id="example" class="table table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Datum Registracije</th>
+                <th>Zadnja Prijava</th>
+				<th>IP</th>
+				<th>HardwerID</th>
+            </tr>
+        </thead>
+        <tbody>
+			<?php foreach($account->getAllUsers() as $user) { ?>
+				<tr>
+					<td><?php echo $user['ID'] ?></td>
+					<td><?php echo $user['Name'] ?></td>
+					<td><?php echo $user['Email'] ?></td>
+					<td><?php echo $user['RegDate'] ?></td>
+					<td><?php echo $user['LoginDate'] ?></td>
+					<td><?php echo $user['IP'] ?></td>
+					<td><?php echo $user['HardwerID'] ?></td>
+				</tr>
+			<?php } ?>
+        </tbody>
+    </table>
+
+
         </div>
       </div>
     </div>
