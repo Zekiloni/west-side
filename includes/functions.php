@@ -364,9 +364,7 @@ class User
 	}
 		
 	public function getUserAgent()
-	{
-		return $_SERVER["HTTP_USER_AGENT"];
-	}
+	{ return $_SERVER["HTTP_USER_AGENT"]; }
 	
 	public function getUserOS()
 	{

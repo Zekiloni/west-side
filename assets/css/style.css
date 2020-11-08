@@ -3,6 +3,9 @@ body {
   color: grey;
   background-color: #1f1f1f;
   background-image: url('../images/background.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   animation: fadeIn 1.5s;
 }
 
@@ -34,8 +37,8 @@ body {
 
 
 hr {
-  background: #dddddd;
-  height: 1px;
+  background: #f7bc6340;
+  height: 0.1px;
   width: 80%;
   margin: 0 auto;
   margin-top: 20px;
@@ -336,6 +339,18 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   -webkit-text-fill-color: white;
-  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  box-shadow  : 0 0 0px 1000px transparent inset;
   transition: background-color 5000s ease-in-out 0s;
 }
+
+.question{
+	font-weight: 600;
+}
+.answers {
+  margin-bottom: 20px;
+}
+.answers label{
+  display: block;
+}
+
+.keep_register { display: none; }

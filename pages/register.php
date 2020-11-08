@@ -2,6 +2,8 @@
 
 	if($account->isLogged()) {	$redir = $url."home"; header("Location: $redir"); }
 
+	# include("includes/quiz.php"); # koristimo js kviz
+
 	if(isset($_POST['signup']))
 	{
 		if(empty($_POST['name']))
@@ -21,6 +23,7 @@
 	}
 
 
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,18 +32,27 @@
 			<form method="POST" class="registration">
 				<div class="title">
 					<img class="logo" src="<?php echo $url; ?>assets/images/logo.png" class="img img-responsive" width="200">
-				</div>			
-				<input type="text" name="name" placeholder="Ime_Prezime">
-				<input type="text" name="email" placeholder="E-Mail Adresa">
-				<input type="text" name="password" placeholder="Korisnička šifra">
-				<input type="text" name="confirm_password" placeholder="Ponovite korisničku šifru">
-				<textarea name="ic_story" placeholder="IC Prica vaseg karaktera"></textarea>
-				<div class="uslovi"> 
-					<input type="checkbox" name="checkbox" value="check" id="agree" /> Pročitao sam i slažem se sa Uslovima i pravilima i Politikom privatnosti <br>
-					<small>Registracijom prihvatate i dalje promene pravila i uslova. </small>
+				</div>	
+				<div class="quiz_register">
+					<div id="quiz"></div>
+						<a href="#" id="submit">Nastavi sa registracijom</a>
+					<div id="results"></div>
 				</div>
-				<br>
-				<button type="submit">Registracija</button>
+
+				<div class="keep_register">
+					<input type="text" name="name" placeholder="Ime_Prezime">
+					<input type="email" name="email" placeholder="E-Mail Adresa">
+					<input type="password" name="password" placeholder="Korisnička šifra">
+					<input type="password" name="confirm_password" placeholder="Ponovite korisničku šifru">
+					<hr>
+					<textarea name="ic_story" placeholder="IC Prica vaseg karaktera"></textarea>
+					<div class="uslovi"> 
+						<input type="checkbox" name="checkbox" value="check" id="agree" /> Pročitao sam i slažem se sa Uslovima i pravilima i Politikom privatnosti <br>
+						<small>Registracijom prihvatate i dalje promene pravila i uslova. </small>
+					</div>
+					<br>
+					<button type="submit">Registracija</button>
+				</div>
 			</form>
 		</div>
 		<div class="container">
