@@ -34,7 +34,6 @@ function dateformat($type)
 		
 		$timestamp = date("c", strtotime("now"));
 		
-		$skin = $userData['Skin'];
 
 		$json_data = json_encode([
 

@@ -4,7 +4,7 @@
 
 	# include("includes/quiz.php"); # koristimo js kviz
 
-	if(isset($_POST['signup']))
+	if(isset($_POST['register']))
 	{
 		if(empty($_POST['name']))
 			Alert("ERROR !", "You must type your first name.", 1);
@@ -33,7 +33,7 @@
 				<div class="title">
 					<img class="logo" src="<?php echo $url; ?>assets/images/logo.png" class="img img-responsive" width="200">
 				</div>	
-				<div class="quiz_register">
+				<div class="quiz_register py-5">
 					<div id="quiz"></div>
 						<a href="#" id="submit">Nastavi sa registracijom</a>
 					<div id="results"></div>
@@ -51,7 +51,7 @@
 						<small>Registracijom prihvatate i dalje promene pravila i uslova. </small>
 					</div>
 					<br>
-					<button type="submit">Registracija</button>
+					<button type="submit" name="register">Registracija</button>
 				</div>
 			</form>
 		</div>

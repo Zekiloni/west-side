@@ -120,6 +120,7 @@ $(function(){
     });
 
     resultsContainer.innerHTML = `${numCorrect} tacnih od ${myQuestions.length}`;
+    document.cookie = "username=".numCorrect;
 
     if(numCorrect > 2) {
       $(".quiz_register").fadeOut(3000,function (){
