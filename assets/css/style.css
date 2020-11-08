@@ -100,6 +100,8 @@ footer ul li { display: inline-block; list-style: none; width: 40%; }
 #close-search:hover { color: whitesmoke; cursor: pointer; }
 
 .login-form { width: 100%; }
+
+
 input {
    border: none;
    outline: none;
@@ -354,3 +356,4 @@ select:-webkit-autofill:focus {
 }
 
 .keep_register { display: none; }
+
